@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1023</width>
+    <height>873</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleName">
+       <string notr="true"/>
+      </property>
+      <property name="accessibleDescription">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_Chargement">
+       <attribute name="title">
+        <string notr="true">A) Chargement des données</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="groupBox_avertissement">
+          <property name="title">
+           <string>AVERTISSEMENT</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_avertissement">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Ce programme permet de calculer (ou simuler) la répartition des sièges à un conseil métropolitain, conformément à l'article &lt;/span&gt;&lt;a href=&quot;https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034116583&quot;&gt;&lt;span style=&quot; font-size:10pt; text-decoration: underline; color:#007af4;&quot;&gt;L5211-6-1&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; (II à VI) du Code Général des Collectivités Territoriales.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Les métropoles supportées par ce programme sont : Bordeaux, Brest, Clermont-Ferrand, Dijon, Grenoble, Lille, Metz, Montpellier, Nancy, Nantes, Nice, Orléans, Paris, Rennes, Rouen, Saint-Etienne, Strasbourg, Toulon, Toulouse et Tours.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#aa0000;&quot;&gt;Lyon bénéficiant d'un régime particulier et Aix-Marseille d'exceptions, ces deux métropoles ne sont pas supportées par cette version du programme.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700; color:#aa0000;&quot;&gt;La répartition des élues de la ville de Paris entre les arrondissements (proportionnelle à la plus forte moyenne) n'est pas prise en compte par ce programme.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignJustify|Qt::AlignmentFlag::AlignVCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_references">
+          <property name="title">
+           <string>Références</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <item>
+            <widget class="QLabel" name="label_references">
+             <property name="text">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cas général :&lt;br /&gt;Article &lt;a href=&quot;https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034116583&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;L5211-6-1&lt;/span&gt;&lt;/a&gt; du&lt;span style=&quot; font-style:italic;&quot;&gt; Code général des collectivités territoriales.&lt;br /&gt;&lt;/span&gt;Conseil constitutionel : &lt;a href=&quot;https://www.conseil-constitutionnel.fr/decision/2015/2015711DC.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Décision&lt;/span&gt;&lt;/a&gt; 2015-711 du 5 mars 2015 et &lt;a href=&quot;https://qpc360.conseil-constitutionnel.fr/commentaire-decision-2015-711-dc-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Commentaire&lt;/span&gt;&lt;/a&gt;.&lt;br /&gt;&lt;a href=&quot;https://www.interieur.gouv.fr/Archives/Archives-elections/Elections-senatoriales-20202/Elections-senatoriales-2020-Dossier-de-presse/Annexe-4-Repartition-des-sieges-au-scrutin-proportionnel-selon-la-methode-de-la-plus-forte-moyenne&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Exemple&lt;/span&gt;&lt;/a&gt; de mise en oeuvre de proportionnelle à la plus forte moyenne. (Remplacer les voix par des habitants)&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cas du Grand-Paris :&lt;br /&gt;Article &lt;a href=&quot;https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031106115&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;L5219-9&lt;/span&gt;&lt;/a&gt; du&lt;span style=&quot; font-style:italic;&quot;&gt; Code général des collectivités territoriales.&lt;br /&gt;&lt;/span&gt;Conseil constitutionel : &lt;a href=&quot;https://www.conseil-constitutionnel.fr/decision/2015/2015717DC.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Décision&lt;/span&gt;&lt;/a&gt; 2015-717 du 6 août 2015 et &lt;a href=&quot;https://qpc360.conseil-constitutionnel.fr/commentaire-decision-2015-717-dc-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Commentaire&lt;/span&gt;&lt;/a&gt;. Il en résulte que le Grand-Paris relève du cas général.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cas de Lyon :&lt;br /&gt;Articles &lt;a href=&quot;https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070239/LEGISCTA000029928447/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;L224-1 à L224-31&lt;/span&gt;&lt;/a&gt; du&lt;span style=&quot; font-style:italic;&quot;&gt; Code général des collectivités territoriales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_options">
+          <property name="title">
+           <string>Options</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_options_mode_calcul">
+             <property name="text">
+              <string>Mode de calcul des sièges optionnels (C.5) : </string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="label_options_attention">
+             <property name="text">
+              <string>Ces options sont prises en compte au moment du chargement du fichier. Les modifier après le chargement n'a aucun effet.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox_ModeCalcul">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: cyan</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Evaluation des écarts AVANT attribution du siège</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Evaluation des écarts APRES attribution du siège (Même logique que pour la plus forte moyenne)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_chargement">
+          <property name="font">
+           <font>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Selection d'une metropole OU Chargement d'un fichier</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_metropole">
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Données &lt;a href=&quot;https://www.insee.fr/fr/statistiques/8290591?sommaire=8290669&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;Insee&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;https://www.insee.fr/fr/statistiques/8290591?sommaire=8290669&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;/&gt;&lt;/a&gt; authentifiées par le décret &lt;a href=&quot;https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050935068&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;n° 2024-1276 du 31 décembre 2024&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QComboBox" name="comboBox_metropole">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: cyan;
+font-weight: bold;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Selectionnez une métropole dans cette liste</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bordeaux</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Brest</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Clermont-Ferrand</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Dijon</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Grenoble</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lille</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Metz</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Montpellier</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nancy</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nantes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nice</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Orléans</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Paris</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rennes</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rouen</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Saint-Étienne</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Strasbourg</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Toulon</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Toulouse</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tours</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="pushButton_load_csv">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="statusTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: cyan</string>
+             </property>
+             <property name="text">
+              <string>Chargez un fichier ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_ou">
+             <property name="text">
+              <string>OU</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="5">
+            <widget class="QLabel" name="label_etapes">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aprés avoir (A) selectionné une métropole ou chargé avec succés un fichier et (B) verifié les données chargées, vous pourrez (C) consulter les différents onglets pour voir en détail chaque étape du processus d'attribution des sièges à un conseil métropolitain (A l'exception de Lyon et Aix-Marseille).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignJustify|Qt::AlignmentFlag::AlignVCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1" colspan="2">
+            <widget class="QLabel" name="label_fichier">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="statusTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Consultez l'onglet &amp;quot;&lt;span style=&quot; font-weight:700; font-style:italic;&quot;&gt;A Propos&lt;/span&gt;&amp;quot; pour savoir ce que doit contenir ce fichier.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_chargement">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Data">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="statusTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
+       </property>
+       <property name="accessibleName">
+        <string notr="true"/>
+       </property>
+       <property name="accessibleDescription">
+        <string notr="true"/>
+       </property>
+       <attribute name="title">
+        <string notr="true">B) Données</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Data">
+          <item>
+           <widget class="QPushButton" name="pushButton_Data">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_DataPdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Data">
+          <property name="undoRedoEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="markdown">
+           <string notr="true">**Vous devez d'abord charger les données**
+
+**des communes et de leurs populations municipales.**
+
+</string>
+          </property>
+          <property name="html">
+           <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+          </property>
+          <property name="placeholderText">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Proportionnelle">
+       <attribute name="title">
+        <string notr="true">C.1) Proportionnelle</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Proportionnelle">
+          <item>
+           <widget class="QPushButton" name="pushButton_Proportionnelle">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_ProportionnellePdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Proportionnelle">
+          <property name="undoRedoEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="markdown">
+           <string notr="true">**Vous devez d'abord charger les données**
+
+**des communes et de leurs populations municipales.**
+
+</string>
+          </property>
+          <property name="html">
+           <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Moyenne">
+       <attribute name="title">
+        <string notr="true">C.2) Plus forte moyenne</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Moyenne">
+          <item>
+           <widget class="QPushButton" name="pushButton_Moyenne">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_MoyennePdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Moyenne">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Bonus">
+       <attribute name="title">
+        <string notr="true">C.3) d'Office</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Bonus">
+          <item>
+           <widget class="QPushButton" name="pushButton_Bonus">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_BonusPdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Bonus">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Limitation">
+       <attribute name="title">
+        <string notr="true">C.4) Limitation</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Limitation">
+          <item>
+           <widget class="QPushButton" name="pushButton_Limitation">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_LimitationPdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Limitation">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Options">
+       <attribute name="title">
+        <string notr="true">C.5) Optionnel</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Options">
+          <item>
+           <widget class="QPushButton" name="pushButton_Options">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_OptionsPdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Options">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Summary">
+       <attribute name="title">
+        <string>D) Résumé</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_12">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_Suummary">
+          <item>
+           <widget class="QPushButton" name="pushButton_Summary">
+            <property name="text">
+             <string>Imprimer cette page ou la sélection ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_SummaryPdf">
+            <property name="text">
+             <string>Sauver dans un fichier PDF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Summary">
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;Vous devez d'abord charger les données&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:700;&quot;&gt;des communes et de leurs populations municipales.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_Apropos">
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="statusTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
+       </property>
+       <property name="accessibleName">
+        <string notr="true"/>
+       </property>
+       <property name="accessibleDescription">
+        <string notr="true"/>
+       </property>
+       <attribute name="title">
+        <string>A Propos</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <widget class="QGroupBox" name="groupBox_apropos">
+          <property name="title">
+           <string>A Propos de ce programme</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <layout class="QFormLayout" name="formLayout_3">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_prj_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Projet</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="label_prj">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_vers_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Version</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_vers">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_git_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Git ref.</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_git">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_compil_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Compiler le</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_compil">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_env_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Environnement</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_env">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_license_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>License</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLabel" name="label_license">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:large;&quot;&gt;GNU General Public License v3.0 (&lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.fr.html#license-text&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;Français&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:large;&quot;&gt; ; &lt;/span&gt;&lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.en.html#license-text&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;English&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:large;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_src_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Code</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLabel" name="label_src">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le code source (C++) est disponible sur &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_bug_title">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Bug</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLabel" name="label_bug">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleName">
+                <string notr="true"/>
+               </property>
+               <property name="accessibleDescription">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Signaler un bug sur &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/issues&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>5</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_logo">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="statusTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;/head&gt;
+&lt;body&gt;&lt;img src=&quot;:/resources/app.png&quot; /&gt;&lt;/body&gt;
+&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>Aide</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <item>
+            <widget class="QLabel" name="label_Aide">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/wiki&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;L'aide en ligne&lt;/span&gt;&lt;/a&gt; contient beaucoup d'information sur l'utilisation et le fonctionnement du programme ainsi que sur des &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/wiki/Concepts&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;concepts clés&lt;/span&gt;&lt;/a&gt; pour comprendre la loi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_format_fichier">
+          <property name="title">
+           <string>Format du fichier d'entrée (optionnel)</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_legalite">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="statusTip">
+              <string notr="true"/>
+             </property>
+             <property name="whatsThis">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleName">
+              <string notr="true"/>
+             </property>
+             <property name="accessibleDescription">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Si vous utilisez &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;vos&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; propres données, la légalité du fichier des communes et de leurs populations municipales décrit ci-dessous est de &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;votre&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; responsabilité. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignJustify|Qt::AlignmentFlag::AlignVCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_format_fichier">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Format du fichier :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Les lignes vides et les lignes commençant par # sont ignorées. &lt;br/&gt;- Les autres lignes doivent être constituées de deux champs séparés par un &lt;span style=&quot; font-weight:700;&quot;&gt;point-virgule&lt;/span&gt; : &lt;br/&gt;&amp;gt; premier champ: Le nom de la commune (encodé en &lt;span style=&quot; font-weight:700;&quot;&gt;UTF-8&lt;/span&gt; pour préservé les accents)&lt;br/&gt;&amp;gt; second champ: La population municipale de cette commune &lt;/p&gt;&lt;p&gt;Pour plus de détails voir la page &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/wiki/Fichiers-csv&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;fichier csv&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-weight:700;&quot;/&gt;de l'aide en ligne.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Exemple de contenu d'un fichier : &lt;/span&gt;&lt;/p&gt;&lt;p&gt;# Liste des communes de Toulouse Métrople et de leurs populations municipales au 1/janv/2025 &lt;/p&gt;&lt;p&gt;Aigrefeuille ; 1326 &lt;br/&gt;Gagnac-sur-Garonne ; 3223 &lt;br/&gt;Toulouse ; 511684 &lt;br/&gt;Colomiers ; 40916 &lt;br/&gt;L'Union ; 12410&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Impression et PDF</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QLabel" name="lable_print_pdf">
+             <property name="toolTip">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Impression directe: &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;A cause de la largeur de certains tableaux il est conseillé d'imprimer en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; paysage. Il est possible de n'imprimer que le texte selectionné.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;PDF&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;: Pour une meilleure lisibilité à l'écran les fichiers PDF sont générés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; portrait, mais peuvent être ensuite imprimés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; ou &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="openExternalLinks">
+              <bool>true</bool>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1023</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

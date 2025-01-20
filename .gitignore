@@ -1,0 +1,7 @@
+*.pro.user
+_*
+src/build/
+build/
+installer/packages/*/data
+installer/*.exe
+src/build_info_head.h

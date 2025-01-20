@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Application</DisplayName>
+    <Description>Installe le programme Conseil-Metropolitain.exe</Description>
+    <Version>2.0.0</Version>
+    <ReleaseDate>2024-03-01</ReleaseDate>
+    <Licenses>
+        <License name="License Agreement" file="LICENSE.GPL3" />
+    </Licenses>
+    <Default>true</Default>
+    <Script postLoad="true">installscript.qs</Script>
+</Package>

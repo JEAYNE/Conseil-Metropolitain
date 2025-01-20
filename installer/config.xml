@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+
+    <!-- identification -->
+    <Title>Conseil-Métropolitain</Title>
+    <Name>Conseil-Metropolitain</Name>  <!-- Pas d'accents ici -->
+    <Version>2.0.0</Version>
+    <Publisher>JEAYNE@github</Publisher>
+    <ProductUrl>https://github.com/JEAYNE/Conseil-Metropolitain</ProductUrl>
+
+    <!-- style -->
+    <WizardStyle>Mac</WizardStyle> <!-- "Modern" "Mac" default="Aero" "Classic" -->
+    <InstallerWindowIcon>../src/resources/app</InstallerWindowIcon>
+    <InstallerApplicationIcon>../src/resources/app</InstallerApplicationIcon>
+    <!-- <Logo>../src/resources/app.png</Logo>  avec style Classic seulement -->
+    <WizardMinimumHeight>400</WizardMinimumHeight>
+    <WizardMinimumWidth>830</WizardMinimumWidth>
+    <Translations> <!-- force l'usage du Français -->
+         <Translation>ifw_fr</Translation>  <!-- pour les textes -->
+         <Translation>qt_fr</Translation>   <!-- pour les boutons -->
+    </Translations>
+
+    <!-- path (relatifs à ce fichier xml -->
+    <AllowNonAsciiCharacters>true</AllowNonAsciiCharacters>
+    <AllowSpaceInPath>true</AllowSpaceInPath>
+    <StartMenuDir>Conseil-Metropolitain</StartMenuDir>
+    <TargetDir>@HomeDir@/Conseil-Metropolitain</TargetDir>
+    <RunProgram>@TargetDir@/bin/Conseil-Metropolitain.exe</RunProgram>
+    <MaintenanceToolName>uninstall</MaintenanceToolName>
+    <ControlScript>controlscript.qs</ControlScript>
+
+</Installer>
+<!-- https://doc.qt.io/qtinstallerframework/ifw-globalconfig.html -->
