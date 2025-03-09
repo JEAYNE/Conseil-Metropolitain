@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1023</width>
-    <height>873</height>
+    <height>907</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -117,21 +117,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
            <string>Options</string>
           </property>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_options_mode_calcul">
-             <property name="text">
-              <string>Mode de calcul des sièges optionnels (C.5) : </string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="label_options_attention">
-             <property name="text">
-              <string>Ces options sont prises en compte au moment du chargement du fichier. Les modifier après le chargement n'a aucun effet.</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
+           <item row="2" column="2">
             <widget class="QComboBox" name="comboBox_ModeCalcul">
              <property name="font">
               <font>
@@ -140,7 +126,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: cyan</string>
+              <string notr="true">background-color: green</string>
              </property>
              <item>
               <property name="text">
@@ -154,7 +140,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </item>
             </widget>
            </item>
-           <item row="1" column="2">
+           <item row="2" column="3">
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
@@ -166,6 +152,56 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_options_mode_calcul">
+             <property name="text">
+              <string>Mode de calcul des sièges optionnels (C.5) : </string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QLabel" name="label_options_attention">
+             <property name="text">
+              <string>Ces options sont prises en compte au moment de la sélection d'une métropole ou du chargement d'un fichier. Les modifier après le chargement n'a aucun effet.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_options_separateur">
+             <property name="text">
+              <string>Séparateur de &lt;b&gt;vos&lt;/b&gt; fichiers CSV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="comboBox_Separateur">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: green;
+font-weight: bold;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>;  (point-virgule)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>,  (virgule)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>|  (barre verticale)</string>
+              </property>
+             </item>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -203,7 +239,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: cyan;
+              <string notr="true">background-color: green;
 font-weight: bold;</string>
              </property>
              <item>
@@ -337,7 +373,8 @@ font-weight: bold;</string>
               <string notr="true"/>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: cyan</string>
+              <string notr="true">background-color: green;
+font-weight: bold;</string>
              </property>
              <property name="text">
               <string>Chargez un fichier ...</string>
@@ -460,7 +497,7 @@ font-weight: bold;</string>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Data">
           <item>
-           <widget class="QPushButton" name="pushButton_Data">
+           <widget class="QPushButton" name="pushButton_DataPrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -519,7 +556,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Proportionnelle">
           <item>
-           <widget class="QPushButton" name="pushButton_Proportionnelle">
+           <widget class="QPushButton" name="pushButton_ProportionnellePrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -578,7 +615,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Moyenne">
           <item>
-           <widget class="QPushButton" name="pushButton_Moyenne">
+           <widget class="QPushButton" name="pushButton_MoyennePrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -621,7 +658,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Bonus">
           <item>
-           <widget class="QPushButton" name="pushButton_Bonus">
+           <widget class="QPushButton" name="pushButton_BonusPrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -664,7 +701,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Limitation">
           <item>
-           <widget class="QPushButton" name="pushButton_Limitation">
+           <widget class="QPushButton" name="pushButton_LimitationPrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -707,7 +744,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Options">
           <item>
-           <widget class="QPushButton" name="pushButton_Options">
+           <widget class="QPushButton" name="pushButton_OptionsPrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>
@@ -750,7 +787,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Suummary">
           <item>
-           <widget class="QPushButton" name="pushButton_Summary">
+           <widget class="QPushButton" name="pushButton_SummaryPrint">
             <property name="text">
              <string>Imprimer cette page ou la sélection ...</string>
             </property>

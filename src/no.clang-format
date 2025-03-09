@@ -1,0 +1,83 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+BasedOnStyle:   LLVM
+Language:       Cpp
+ColumnLimit:    119
+UseTab:         Never
+TabWidth:       4
+IndentWidth:    4
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+AccessModifierOffset: -2
+InsertNewlineAtEOF: true
+
+AlignConsecutiveAssignments:
+  Enabled:          true
+  AcrossEmptyLines: false
+  AcrossComments:   false
+  AlignCompound:    true
+  PadOperators:     true
+
+AlignConsecutiveBitFields:
+  Enabled:          true
+  AcrossEmptyLines: false
+  AcrossComments:   false
+  AlignCompound:    true
+  PadOperators:     true
+BitFieldColonSpacing: Both
+
+AlignConsecutiveDeclarations:
+  Enabled:          true
+  AcrossEmptyLines: false
+  AcrossComments:   false
+  AlignCompound:    true
+  PadOperators:     true
+
+AlignConsecutiveMacros:
+  Enabled:          true
+  AcrossEmptyLines: false
+  AcrossComments:   false
+  AlignCompound:    false
+  PadOperators:     false
+
+AlignConsecutiveShortCaseStatements:
+  Enabled:          true
+  AcrossEmptyLines: false
+  AcrossComments:   false
+  AlignCaseColons:  false
+
+BreakBeforeBraces:       Custom
+BraceWrapping:
+  AfterCaseLabel:        false
+  AfterClass:            false
+  AfterControlStatement: MultiLine  # or Never
+  AfterEnum:             false
+  AfterExternBlock:      false
+  AfterFunction:         false
+  AfterNamespace:        false
+  AfterObjCDeclaration:  false
+  AfterStruct:           false
+  AfterUnion:            false
+  BeforeCatch:           false
+  BeforeElse:            false
+  BeforeLambdaBody:      false
+  BeforeWhile:           false
+  IndentBraces:          false
+  SplitEmptyFunction:    false
+  SplitEmptyRecord:      false
+  SplitEmptyNamespace:   false
+
+BreakBeforeBinaryOperators: true
+AlignOperands: AlignAfterOperator
+
+#effet bizarre si str est un parametre de fonction
+AlwaysBreakBeforeMultilineStrings: true
+
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+
+SpacesInParens:  Never
+
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false

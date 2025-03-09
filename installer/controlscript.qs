@@ -22,8 +22,8 @@ Controller.prototype.TargetDirectoryPageCallback = function(){
     "Une version de " + product + " est déjà installée dans<br/>"
     + previous + "<br/>"
     + "Cliquez sur :<br/>"
-    + " &nbsp; <b>Yes</b> pour la désinstaller<br/>"
-    + " &nbsp; <b>No</b>  pour l'écraser ou abandonner à la prochaine étape",
+    + " &nbsp; <b>Oui</b> pour la désinstaller immédiatement<br/>"
+    + " &nbsp; <b>Non</b> pour l'écraser ou abandonner à la prochaine étape",
     QMessageBox.Yes | QMessageBox.No);
 
     if(result == QMessageBox.Yes){

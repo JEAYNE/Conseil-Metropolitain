@@ -3,12 +3,10 @@
 
 #include "InfoCommune.h"
 
-// clang-format off
-InfoCommune::InfoCommune(QString nom, int population)
-    : nom(nom)
-    , population(population)
-{
+InfoCommune::InfoCommune(QString nom, int population) : nom(nom), population(population) {
     sieges1 = sieges2 = sieges3 = sieges4 = sieges5 = 0;
+    k2                                              = false;
+    // clang-format off
     // Nombre de conseillés municipaux (Article L2121-2)
     if(      population <     100) cm =  7; // parfois 5
     else if( population <     500) cm = 11; // parfois 9
@@ -29,5 +27,5 @@ InfoCommune::InfoCommune(QString nom, int population)
     else if( population < 250'000) cm = 61;
     else if( population < 300'000) cm = 65;
     else                           cm = 69;
+    // clang-format on
 }
-// clang-format on

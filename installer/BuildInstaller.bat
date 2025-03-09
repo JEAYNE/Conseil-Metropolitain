@@ -4,7 +4,7 @@ cd %batDir%
 
 SET PRG=Conseil-Metropolitain.exe
 
-SET   QT=D:\APPS\Qt\6.8.2\mingw_64
+SET   QT=D:\APPS\Qt\6.8.3\mingw_64
 SET  GCC=D:\APPS\Qt\Tools\mingw1310_64
 SET INST=D:\APPS\Qt\Tools\QtInstallerFramework\4.8
 

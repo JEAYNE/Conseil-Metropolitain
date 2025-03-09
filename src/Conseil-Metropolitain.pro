@@ -40,7 +40,7 @@ DISTFILES += \
     ../Changelog.md \
     ../README.md \
     ../TODO.md \
-    .clang-format
+    no.clang-format
 
 RC_FILE = version.rc
 

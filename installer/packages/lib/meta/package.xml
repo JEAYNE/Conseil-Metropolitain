@@ -2,7 +2,7 @@
 <Package>
     <DisplayName>Librairies</DisplayName>
     <Description>Installe les librairies requisent par Conseil-Metropolitain.exe (Qt6,libgcc,ligstdc++)</Description>
-    <Version>6.8.2</Version>
-    <ReleaseDate>2025-01-24</ReleaseDate>
+    <Version>6.8.3</Version>
+    <ReleaseDate>2025-03-17</ReleaseDate>
 	<Default>true</Default>
 </Package>
