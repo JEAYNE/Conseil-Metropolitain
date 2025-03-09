@@ -13,4 +13,4 @@ nécessaire pour pouvoir gérer le cas des conseillers métropolitains  > consei
 
 - Revoir le problème de performance de QTextEdit / QTextBrowser
 
-- Pouvoir automatiquement désinstaller la version précédente
+- ~~Pouvoir automatiquement désinstaller la version précédente~~ (fait)

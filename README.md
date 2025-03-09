@@ -1,6 +1,6 @@
 <img align="right" src="src/resources/app.png">
 
-### Représentation à un Conseil Métropolitain
+### *Représentation à un Conseil Métropolitain*
 <br/>
 <br/>
 <br/>
@@ -24,8 +24,8 @@ certifiés pour les élections municipales de 2020 (données 2019) et de 2026
 simulations/projections.
 
 # LIMITATIONS
-Il y a actuellement 22 métropoles en France :
-~~Aix-Marseille~~, Bordeaux, Brest, Clermont-Ferrand, Dijon, Grenoble, Lille, ~~Lyon~~,
+Il y a actuellement [22 métropoles](https://fr.wikipedia.org/wiki/M%C3%A9tropole_(intercommunalit%C3%A9_fran%C3%A7aise))
+en France : ~~Aix-Marseille~~, Bordeaux, Brest, Clermont-Ferrand, Dijon, Grenoble, Lille, ~~Lyon~~,
 Metz, Montpellier, Nancy, Nantes, Nice, Orléans, Paris, Rennes, Rouen, Saint-Etienne,
 Strasbourg, Toulon, Toulouse et Tours.
 
@@ -37,9 +37,19 @@ la métropole d'Aix-Marseille n'est pas supportée par ce programme.
 La derrière partie du processus d’attribution des sièges, parfois appelé *'accord local'*,
 donne un certain degré de liberté dans l’attribution optionnelle de sièges supplémentaires.
 Ce programme propose deux algorithmes pour éventuellement faire ces attributions, **mais
-d’autres méthodes (plus politiques) sont envisageables** tant qu’elles respectent le cadre
+d’autres méthodes arithmétiques et/ou politiques sont envisageables** tant qu’elles respectent le cadre
 légal et en particulier les recommandations du Conseil Constitutionnel (qui sont rappelées
 par le programme).
+
+# AIDE / WIKI
+Le **[Wiki](https://github.com/JEAYNE/Conseil-Metropolitain/wiki)** couvre beaucoup
+de sujets et est trés régulièrement mis à jour :
+- Procédures d'installation / mise à jour / désinstallation.
+- Utilisation du programme.
+- Les [concepts-clés](https://github.com/JEAYNE/Conseil-Metropolitain/wiki/Concepts) :
+Représentativité, plus forte moyenne, calculs AVANT/APRES attribution ...
+- Information sur les données utilisées par le programme et comment utiliser
+vos propres données.
 
 # NOTE pour les profanes...
 Vous êtes peut-être étonnés de n'avoir jamais entendu parler d’élections pour les
@@ -51,9 +61,9 @@ métropolitain, en plus du conseil municipal de la commune.
 Pour chaque commune le nombre de ces conseillers municipaux à double casquette est
 définit par l'article L5211-6-1 du CGCT et est l’objet principal de ce programme.
 Il dépend principalement de la part que représente la population de la commune par
-rapport à l'ensemble des communes de cette métrople.
+rapport à l'ensemble des communes de cette métropole.
 
-# CODE
+# CODE SOURCE
 
 TOUT est open-source : les outils et le programme final.
 
@@ -63,14 +73,14 @@ TOUT est open-source : les outils et le programme final.
 - Le programme d'installation pour Windows est aussi créé avec le framework Qt.
 - Une fois tous les 6 ans (!), un script [Perl](https://strawberryperl.com/)
 fusionne des données publiées par l'Insee pour
-produire un fichier CSV par métropole, que le programme ```Conseil-Metropolitain.exe``` 
+produire un fichier CSV par métropole, que le programme ```Conseil-Metropolitain.exe```
 utilise (voir le répertoire ```insee```).
 
 # BUGS
 
 En cas de suspicion ou découverte d'un bug, ou pour tout autre problème ou remarque, merci
-d'ouvrir une discussion (en Fançais or in English) dans le système de
-[gestion de bug](https://github.com/JEAYNE/Conseil-Metropolitain/issues) de GitHub.
+d'ouvrir une discussion (en Français or in English) dans le système de
+[gestion de bug](https://github.com/JEAYNE/Conseil-Metropolitain/issues).
 
 # COPIES D'ECRAN
 
