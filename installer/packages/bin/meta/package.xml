@@ -2,8 +2,8 @@
 <Package>
     <DisplayName>Application</DisplayName>
     <Description>Installe le programme Conseil-Metropolitain.exe</Description>
-    <Version>2.0.0</Version>
-    <ReleaseDate>2024-03-01</ReleaseDate>
+    <Version>2.1.0</Version>
+    <ReleaseDate>2024-04-01</ReleaseDate>
     <Licenses>
         <License name="License Agreement" file="LICENSE.GPL3" />
     </Licenses>

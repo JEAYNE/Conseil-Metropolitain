@@ -4,8 +4,8 @@
 #define COMPILE_YY   25  
 #define COMPILE_MONTH2  03 
 #define COMPILE_MONTH   3  
-#define COMPILE_DAY2  08 
-#define COMPILE_DAY   8  
+#define COMPILE_DAY2  12 
+#define COMPILE_DAY   12  
 #define PROJECT_NAME  "Conseil-Metropolitain" 
 #define COMPILE_ENV   "Qt 6.8.2 ~ MinGW 13.1.0 64-bit for C++ ~ release" 
 #define GIT_BRANCH main 

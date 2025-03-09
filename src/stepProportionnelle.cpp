@@ -6,27 +6,22 @@
 
 #include "editTools.h"
 
-void MainWindow::step_Proportionnelle(){
+void MainWindow::step_Proportionnelle() {
 
     //| Nombre initial de sieges
     //| Article L5211-6-1 III https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034116583
     //| Note: un test empêche d'executer cette fonction si siegesMetropole < 250'000
 
-    if( popMetropole < 150'000 )
-        siegesBase = 48;
-    else if( popMetropole < 200'000 )
-        siegesBase = 56;
-    else if( popMetropole < 250'000 )
-        siegesBase = 64;
-    else if( popMetropole < 350'000 )
-        siegesBase = 72;
-    else if( popMetropole < 500'000 )
-        siegesBase = 80;
-    else if( popMetropole < 700'000 )
-        siegesBase = 90;
-    else if( popMetropole < 1'000'000 )
-        siegesBase = 100;
-    else siegesBase = 130;
+    // clang-format off
+    if      (popMetropole < 150'000)   siegesBase =  48;
+    else if (popMetropole < 200'000)   siegesBase =  56;
+    else if (popMetropole < 250'000)   siegesBase =  64;
+    else if (popMetropole < 350'000)   siegesBase =  72;
+    else if (popMetropole < 500'000)   siegesBase =  80;
+    else if (popMetropole < 700'000)   siegesBase =  90;
+    else if (popMetropole < 1'000'000) siegesBase = 100;
+    else                               siegesBase = 130;
+    // clang-format on
 
     siegesMetropole = siegesBase;
     //|
@@ -51,13 +46,14 @@ void MainWindow::step_Proportionnelle(){
     // C'est une valeur facile à comprendre. Exemple 6481 habitant par siege
     // On utilise alors la formule : siegesCommune = arrondi_inferieur(popCommune / Q)
     //
-    const float Q = static_cast<float>(popMetropole) / siegesMetropole;
-    int attrib = 0;
-    for( auto & commune : communes ){
+    const float Q      = static_cast<float>(popMetropole) / siegesMetropole;
+    int         attrib = 0;
+
+    for (auto& commune : communes) {
         const auto sieges = trunc(commune.population / Q);
-        if( sieges>0 ){
-            attrib += sieges;
-            commune.sieges1 = sieges;
+        if (sieges > 0) {
+            attrib          += sieges;
+            commune.sieges1  = sieges;
         }
     }
     resteProportionnelle = siegesMetropole - attrib;
@@ -70,51 +66,49 @@ void MainWindow::step_Proportionnelle(){
     auto te = ui->textEdit_Proportionnelle;
     te->clear();
 #else
-    auto * const te = getNewTextEdit(ui->tab_Proportionnelle);
+    auto* const te = getNewTextEdit(ui->tab_Proportionnelle);
 #endif
 
     QTextCursor cursor(te->textCursor());
+    const char* p;
 
-    cursor.insertHtml( QString(
-        "<h1>Proportionnelle à la plus forte moyenne</h1>"
+    p = "<h1>Proportionnelle à la plus forte moyenne</h1>"
         "<p style=\"font-size:12pt;\">"
         "La population de la métropole de %1 étant de %2 habitants <b>%3 sieges</b> de son conseil "
         "métropolitains sont à attribuer à la proportionnelle à la plus forte moyenne."
-        "</p><br/>"
-    ).arg(nomMetropole).arg(popMetropole).arg(siegesMetropole));
+        "</p><br/>";
+    cursor.insertHtml(QString(p).arg(nomMetropole).arg(popMetropole).arg(siegesMetropole));
 
-    cursor.insertHtml( QString(
-        "<h1>1/2) Proportionnelle simple</h1>"
+    p = "<h1>1/2) Proportionnelle simple</h1>"
         "<p style=\"font-size:12pt;\">"
         "Dans un premier temps la proportionnelle <i>simple</i> (règle de trois) permet d'attribuer "
         "%1 sièges sur les %3.<br/>Les %4 sièges restants seront attribués à l'étape suivante "
-        "par la règle itérative de la <i>plus forte moyenne</i>.</p><br/>"
-    ).arg(attrib).arg(siegesMetropole).arg(resteProportionnelle));
+        "par la règle itérative de la <i>plus forte moyenne</i>.</p><br/>";
+    cursor.insertHtml(QString(p).arg(attrib).arg(siegesMetropole).arg(resteProportionnelle));
 
-    cursor.insertHtml( QString(
-        "<p style=\"font-size:12pt;\">"
+    p = "<p style=\"font-size:12pt;\">"
         "Avec %1 sièges pour %2 habitants la <i>moyenne</i> métropolitaine est de %3 habitants/siege.<br/>"
         "Autant de fois une commune aura %3 habitants sur son territoire, autant de sieges "
-        "lui seront attribués à cette étape.</p><br/>"
-    ).arg(siegesMetropole).arg(popMetropole).arg(Q));
+        "lui seront attribués à cette étape.</p><br/>";
+    cursor.insertHtml(QString(p).arg(siegesMetropole).arg(popMetropole).arg(Q));
 
     const int nLines = communes.size();
-    const int nCols = 3;
+    const int nCols  = 3;
 
     //-- Classement alphabetique
     cursor.insertHtml("<h2>Classement des communes par ordre alphabétique :</h2>");
 
-    QTextTable *table1 = cursor.insertTable(nLines+2, nCols);
+    QTextTable* table1 = cursor.insertTable(nLines + 2, nCols);
     table1->setFormat(tblFormat);
 
     // Header
-    setCell(table1, 0, 0, "Communes",        boldCharFormat);
+    setCell(table1, 0, 0, "Communes ↑", boldCharFormat);
     setCell(table1, 0, 1, "    Populations", boldCharFormat);
-    setCell(table1, 0, 2, "    Sieges",      boldCharFormat);
+    setCell(table1, 0, 2, "    Sieges", boldCharFormat);
 
     // donnée de population pour chaque communes de la metropole
     int line = 0;
-    for( auto *commune : std::as_const(parNom) ){
+    for (auto* commune : std::as_const(parNom)) {
         line++;
         setCell(table1, line, 0, commune->nom);
         setCell(table1, line, 1, commune->population);
@@ -124,29 +118,28 @@ void MainWindow::step_Proportionnelle(){
     // Dernière ligne : total
     line++;
     setCell(table1, line, 0, "TOTAL métropole", boldCharFormat);
-    setCell(table1, line, 1, popMetropole,      boldCharFormat);
-    setCell(table1, line, 2, attrib,            boldCharFormat);
+    setCell(table1, line, 1, popMetropole, boldCharFormat);
+    setCell(table1, line, 2, attrib, boldCharFormat);
 
     cursor.movePosition(QTextCursor::End);
     cursor.insertHtml("<br/><br>");
 
     //---- Classement par population
-    cursor.insertHtml(
-        "<h2>Classement des communes par ordre de population :<br/>"
-        "(identique au classement par siège)</h2>"
-    );
+    p = "<h2>Classement des communes par ordre de population :<br/>"
+        "(identique au classement par siège)</h2>";
+    cursor.insertHtml(p);
 
-    QTextTable *table2 = cursor.insertTable(nLines+2, nCols);
+    QTextTable* table2 = cursor.insertTable(nLines + 2, nCols);
     table2->setFormat(tblFormat);
 
     // Header
-    setCell(table2, 0, 0, "Communes",        boldCharFormat);
-    setCell(table2, 0, 1, "    Populations", boldCharFormat);
-    setCell(table2, 0, 2, "    Sieges",      boldCharFormat);
+    setCell(table2, 0, 0, "Communes", boldCharFormat);
+    setCell(table2, 0, 1, "    Populations ↓", boldCharFormat);
+    setCell(table2, 0, 2, "    Sieges ↓", boldCharFormat);
 
     // nom, population, sieges1
     line = 0;
-    for( auto *commune : std::as_const(parPopulation) ){
+    for (auto* commune : std::as_const(parPopulation)) {
         line++;
         setCell(table2, line, 0, commune->nom);
         setCell(table2, line, 1, commune->population);
@@ -156,8 +149,8 @@ void MainWindow::step_Proportionnelle(){
     // Dernière ligne : total
     line++;
     setCell(table2, line, 0, "TOTAL métropole", boldCharFormat);
-    setCell(table2, line, 1, popMetropole,      boldCharFormat);
-    setCell(table2, line, 2, attrib,            boldCharFormat);
+    setCell(table2, line, 1, popMetropole, boldCharFormat);
+    setCell(table2, line, 2, attrib, boldCharFormat);
 
     cursor.movePosition(QTextCursor::End);
     cursor.insertHtml("<br/><br/>");

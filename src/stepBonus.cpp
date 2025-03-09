@@ -15,48 +15,48 @@ void MainWindow::step_Bonus(){
 #endif
 
     QTextCursor cursor(te->textCursor());
+    const char* p;
 
     cursor.insertHtml("<h1>Siège attribué d'office</h1><br/>");
 
     if( sansSiege == 0 ){
-        cursor.insertHtml( QString(
-            "<p style=\"font-size:12pt;\">"
+        p = "<p style=\"font-size:12pt;\">"
             "Aucun siège n'est a attribuer d'office car toutes les communes de la métropole de %1 "
-            "ont reçues un siège à l'étape précédente.<br/></p>"
-        ).arg(nomMetropole));
+            "ont reçues un siège à l'étape précédente.<br/></p>";
+        cursor.insertHtml(QString(p).arg(nomMetropole));
         siegesDroit = siegesMetropole;
         return;
     }
 
-    cursor.insertHtml( QString(
-        "<p style=\"font-size:12pt;\">"
+    p = "<p style=\"font-size:12pt;\">"
         "Un siège est attribué d'office à chacune des %1 communes qui, à l'issue des deux étapes "
         "de la proportionnelle à la plus forte moyenne, n'a toujours pas de siège.<br/>"
         "<i>NOTE : Ceci porte le nombre de sièges du conseil de la métropole de %2 de %3 à %4 (+%5%)</i>"
-        "<br/></p>"
-    ).arg(sansSiege)
-     .arg(nomMetropole)
-     .arg(siegesMetropole)
-     .arg(siegesMetropole + sansSiege)
-     .arg((100.0 * sansSiege) / siegesMetropole, 5, 'f', 2));
+        "<br/></p>";
+    cursor.insertHtml(QString(p)
+                          .arg(sansSiege)
+                          .arg(nomMetropole)
+                          .arg(siegesMetropole)
+                          .arg(siegesMetropole + sansSiege)
+                          .arg((100.0 * sansSiege) / siegesMetropole, 5, 'f', 2));
 
     QTextTable *table = cursor.insertTable(communes.size()+2, 4);
     table->setFormat(tblFormat);
 
     // Header
-    setCell(table, 0, 0, "Communes",        boldCharFormat);
-    setCell(table, 0, 1, "    Populations", boldCharFormat);
-    setCell(table, 0, 2, "      +",         boldCharFormat);
-    setCell(table, 0, 3, "    Sieges",      boldCharFormat);
+    setCell(table, 0, 0, "Communes",          boldCharFormat);
+    setCell(table, 0, 1, "    Populations ↑", boldCharFormat);
+    setCell(table, 0, 2, "      +",           boldCharFormat);
+    setCell(table, 0, 3, "    Sieges ↑",      boldCharFormat);
 
     // nom, population, sieges3, flag
     int line = 0;
     //for( auto commune : parPopulation ){
-    for( auto commune = parPopulation.rbegin(); commune!= parPopulation.rend(); ++commune){
+    for (auto commune = parPopulation.rbegin(); commune != parPopulation.rend(); ++commune) {
         line++;
-        if( (*commune)->totalSieges()==0){
+        if ((*commune)->totalSieges() == 0) {
             (*commune)->sieges3 = 1;
-            siegesMetropole ++;
+            siegesMetropole++;
         }
         setCell(table, line, 0, (*commune)->nom);
         setCell(table, line, 1, (*commune)->population);

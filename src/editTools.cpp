@@ -27,9 +27,9 @@ extern QString nomMetropole;
 //          +--> autreWidget    (Facultatif)
 //          +--> textEdit_xxxx  (Si présent doit être le dernier QWidget du layout)
 
-QTextEdit *getNewTextEdit(QWidget *parent) {
-    auto *layout = parent->layout();
-    auto *lastChild = layout->takeAt(layout->count() - 1); // dernier item du layout
+QTextEdit* getNewTextEdit(QWidget* parent) {
+    auto* layout    = parent->layout();
+    auto* lastChild = layout->takeAt(layout->count() - 1); // dernier item du layout
     if (lastChild != nullptr) {
         delete lastChild->widget();
         delete lastChild;
@@ -40,7 +40,7 @@ QTextEdit *getNewTextEdit(QWidget *parent) {
         te->setReadOnly(true);
         te->setTextInteractionFlags(Qt::TextBrowserInteraction);
 #else
-    auto *const te = new QTextBrowser(); // permet d'avoir les liens cliquables
+    auto* const te = new QTextBrowser(); // permet d'avoir les liens cliquables
     layout->addWidget(te);
     te->setReadOnly(true);
     te->setOpenExternalLinks(true);
@@ -51,9 +51,8 @@ QTextEdit *getNewTextEdit(QWidget *parent) {
 
     // Insere date et heure
     QDateTime dateTime = dateTime.currentDateTime();
-    cursor.insertHtml(
-        QString("<p align=\"right\">%1 - %2 - %3</p><p align=\"left\"><br/></p>")
-            .arg(dateTime.toString("dddd d MMMM yyyy HH:mm:ss"), nomMetropole, APP_RELEASE));
+    cursor.insertHtml(QString("<p align=\"right\">%1 - %2 - %3</p><p align=\"left\"><br/></p>")
+                          .arg(dateTime.toString("dddd d MMMM yyyy HH:mm:ss"), nomMetropole, APP_RELEASE));
     cursor.movePosition(QTextCursor::End);
 
     return te; // retourne soit un QTextEdit soit QTextBrowser (qui derive de TextEdit)

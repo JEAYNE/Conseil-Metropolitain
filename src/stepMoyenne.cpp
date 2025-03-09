@@ -40,76 +40,72 @@ void MainWindow::step_Moyenne(){
 #endif
 
     QTextCursor cursor(te->textCursor());
-
-    QMap<QString, InfoCommune*> attributions;
-
+    const char* p;
     const float Q = static_cast<float>(popMetropole) / siegesMetropole;
-    cursor.insertHtml( QString(
-        "<h1>Proportionnelle à la plus forte moyenne</h1>"
+
+    p = "<h1>Proportionnelle à la plus forte moyenne</h1>"
         "<p style=\"font-size:12pt;\">"
         "Le terme '<i>moyenne</i> d'une commune' désigne le rapport '<i>Population municipale de la commune</i>' "
         "divisée par '<i>nombre de sièges de la commune au conseil métropolitain</i>'.<br/>"
         "<b>&rArr; Plus la moyenne d'une commune est forte plus ses habitants sont faiblement représentés.</b><br/>"
         "Attribuer un siège à une commune fait baisser sa moyenne et donc améliore la "
         "représentativité de ses habitants.<br/><br/>"
-        "Pour comparaison la moyenne métropolitaine est à ce stade de %1 hab/siège.</p><br/>"
-    ).arg(Q,0,'f',2));
+        "Pour comparaison la moyenne métropolitaine est à ce stade de %1 hab/siège.</p><br/>";
+    cursor.insertHtml(QString(p).arg(Q, 0, 'f', 2));
 
-    cursor.insertHtml( QString(
-        "<h1>2/2) Attribution des %1 siéges restants à la plus forte moyenne</h1><br/>"
-    ).arg(resteProportionnelle));
+    cursor.insertHtml(QString("<h1>2/2) Attribution des %1 siéges restants à la plus forte moyenne</h1><br/>")
+                          .arg(resteProportionnelle));
 
-    for( int siege=1; siege<=resteProportionnelle; siege++){
+    QMap<QString, InfoCommune*> attributions;
+    for (int siege = 1; siege <= resteProportionnelle; siege++) {
         // Calcule la moyenne de chaque commune dans l'hypothese d'un siège en plus
         // et détermine la quelle aurait la plus forte moyenne.
-        float maxMoyenne = 0;
-        InfoCommune* winner = nullptr;
-        for( auto *const commune : std::as_const(parNom) ){
+        float        maxMoyenne = 0;
+        InfoCommune* winner     = nullptr;
+        for (auto* const commune : std::as_const(parNom)) {
             const auto moyenne = static_cast<float>(commune->population) / (commune->totalSieges() + 1);
-            commune->moyenne = moyenne;
-            if( moyenne > maxMoyenne ){
+            commune->moyenne   = moyenne;
+            if (moyenne > maxMoyenne) {
                 maxMoyenne = moyenne;
-                winner = commune;
+                winner     = commune;
             }
         }
 
         // Construire un index decroissant des moyennes
         auto parMoyenne = parNom;
-        std::sort(parMoyenne.begin(), parMoyenne.end(), [](const auto lhs, const auto rhs){
-           return rhs->moyenne < lhs->moyenne;    // ordre décroissant 9->0
+        std::sort(parMoyenne.begin(), parMoyenne.end(), [](const auto lhs, const auto rhs) {
+            return rhs->moyenne < lhs->moyenne; // ordre décroissant 9->0
         });
 
         //---- Table des moyennes
-        cursor.insertHtml( QString(
-            "<h3>Nouvelles moyennes dans l'<u>hypothèse</u> de l'attribution "
-            "du siège N° %1 :</h3>"
-        ).arg(siege));
+        p = "<h3>Nouvelles moyennes dans l'<u>hypothèse</u> de l'attribution du siège N° %1 :</h3>";
+        cursor.insertHtml(QString(p).arg(siege));
 
         QTextTable *table = cursor.insertTable(nbrCommunes+1, 6);
         table->setFormat(tblFormat);
 
         // Header
-        setCell(table, 0, 0, "Communes",                    boldCharFormat);
-        setCell(table, 0, 1, "    Populations",             boldCharFormat);
-        setCell(table, 0, 2, "    Sieges\nactuels",         boldCharFormat);
-        setCell(table, 0, 3, "        Moyennes\nactuelles", boldCharFormat);
-        setCell(table, 0, 4, "    Sieges    \nactuels+1",   boldCharFormat);
-        setCell(table, 0, 5, "        Nouvelles\nMoyennes", boldCharFormat);
+        setCell(table, 0, 0, "Communes",                      boldCharFormat);
+        setCell(table, 0, 1, "    Populations",               boldCharFormat);
+        setCell(table, 0, 2, "    Sieges\nactuels",           boldCharFormat);
+        setCell(table, 0, 3, "        Moyennes\nactuelles",   boldCharFormat);
+        setCell(table, 0, 4, "    Sieges    \nactuels+1",     boldCharFormat);
+        setCell(table, 0, 5, "        Nouvelles\nMoyennes ↓", boldCharFormat);
 
         // Affiche la moyenne pour chaque communes avec un hypothetique siège en plus
         int line = 0;
-        for( const auto * const commune : parMoyenne ){
+        for (const auto* const commune : parMoyenne) {
             line++;
             const int totalSieges = commune->totalSieges();
             setCell(table, line, 0, commune->nom);
             setCell(table, line, 1, commune->population);
             setCell(table, line, 2, totalSieges);
-            if( totalSieges > 0 ){
+            if (totalSieges > 0) {
                 setCell(table, line, 3, static_cast<float>(commune->population) / totalSieges);
-            }else{
+            } else {
                 setCell(table, line, 3, "-");
             }
-            setCell(table, line, 4, totalSieges+1);
+            setCell(table, line, 4, totalSieges + 1);
             setCell(table, line, 5, commune->moyenne);
         }
 
@@ -117,31 +113,29 @@ void MainWindow::step_Moyenne(){
         cursor.insertHtml("<br/><br>");
 
         // conclusion
-        winner->sieges2 ++;
-        cursor.insertHtml( QString(
-            "<h3>&nbsp; &nbsp; &rArr; Le siège N° %1 est donc attribué à %2 car sa moyenne "
-            "de %3 hab/siège, avec %4 sièges, sera la plus forte</h3><br/><br/>"
-        ).arg(siege).arg(winner->nom).arg(winner->moyenne).arg(winner->totalSieges()));
+        winner->sieges2++;
+        p = "<h3>&nbsp; &nbsp; &rArr; Le siège N° %1 est donc réattribué à %2 car "
+            "avec %3 sièges sa moyenne de %4 hab/siège sera la plus forte</h3><br/><br/>";
+        cursor.insertHtml(QString(p).arg(siege).arg(winner->nom).arg(winner->totalSieges()).arg(winner->moyenne));
         attributions[winner->nom] = winner;
     }
 
     //---- Résumé des attributions
     const int nbrWinners = attributions.size();
 
-    cursor.insertHtml( QString(
-        "<h3>RESUME de l'attribution à %1 communes (à la plus forte moyenne) des %2 siéges "
-        "restants aprés la proportionnelle simple :</h3>"
-    ).arg(nbrWinners).arg(resteProportionnelle));
+    p = "<h3>RESUME de l'attribution à %1 communes (à la plus forte moyenne) des %2 siéges "
+        "restants aprés la proportionnelle simple :</h3>";
+    cursor.insertHtml(QString(p).arg(nbrWinners).arg(resteProportionnelle));
 
     QTextTable *table = cursor.insertTable(nbrWinners+1, 3);
     table->setFormat(tblFormat);
 
-    setCell(table, 0, 0, "Communes",             boldCharFormat);
+    setCell(table, 0, 0, "Communes ↑",           boldCharFormat);
     setCell(table, 0, 1, "    Sièges attribués", boldCharFormat);
     setCell(table, 0, 2, "    Sièges",           boldCharFormat);
 
     int line = 0;
-    for( auto * const commune : std::as_const(attributions) ){
+    for (auto* const commune : std::as_const(attributions)) {
         line++;
         setCell(table, line, 0, commune->nom);
         setCell(table, line, 1, commune->sieges2);
@@ -161,30 +155,29 @@ void MainWindow::step_Moyenne(){
     //    );
     // });
 
-    cursor.insertHtml( QString(
-        "<h1>RESULTATS de la proportionnelle à la plus forte moyenne.<h1>"
+    p = "<h1>RESULTATS de la proportionnelle à la plus forte moyenne.<h1>"
         "<h2>Classement des communes par population<br>"
-        "<i>(qui doit induire le même classement par sièges)</i></h2>"
-    ));
+        "<i>(qui doit induire le même classement par sièges)</i></h2>";
+    cursor.insertHtml(QString(p));
 
     table = cursor.insertTable(nbrCommunes+2, 4);
     table->setFormat(tblFormat);
 
-    setCell(table, 0, 0, "Communes",       boldCharFormat);
-    setCell(table, 0, 1, "    Population", boldCharFormat);
-    setCell(table, 0, 2, "    Sièges",     boldCharFormat);
-    setCell(table, 0, 3, "    Moyenne",    boldCharFormat);
+    setCell(table, 0, 0, "Communes",         boldCharFormat);
+    setCell(table, 0, 1, "    Population ↓", boldCharFormat);
+    setCell(table, 0, 2, "    Sièges ↓",     boldCharFormat);
+    setCell(table, 0, 3, "    Moyenne",      boldCharFormat);
 
-    line = 0;
+    line      = 0;
     sansSiege = 0;
-    for( auto * const commune : std::as_const(parPopulation) ){
+    for (auto* const commune : std::as_const(parPopulation)) {
         line++;
         setCell(table, line, 0, commune->nom);
         setCell(table, line, 1, commune->population);
         setCell(table, line, 2, commune->totalSieges());
-        if( commune->totalSieges() > 0 ){
+        if (commune->totalSieges() > 0) {
             setCell(table, line, 3, static_cast<float>(commune->population) / commune->totalSieges());
-        }else{
+        } else {
             setCell(table, line, 3, "-");
             sansSiege++;
         }
@@ -193,24 +186,23 @@ void MainWindow::step_Moyenne(){
     cursor.movePosition(QTextCursor::End);
     cursor.insertHtml("<br/><br>");
 
-    cursor.insertHtml(QString("<p style=\"font-size:12pt;\">"
-                              "NOTES: Les %1 sièges ont tous été attribués à la proportionelle à "
-                              "la plus forte moyenne, </p>" ).arg(siegesMetropole));
+    p = "<p style=\"font-size:12pt;\">"
+        "NOTES: Les %1 sièges ont tous été attribués à la proportionelle à la plus forte moyenne, </p>";
+    cursor.insertHtml(QString(p).arg(siegesMetropole));
 
-    if( sansSiege>0 ){
-        cursor.insertHtml(QString("<p style=\"font-size:12pt;\">"
-                              "mais à ce stade %1 des %2 communes (soit %4% des communes) n'ont "
-                              "toujours pas de siège. "
-                              "Cela tient au fait que leurs populations sont nettement inférieures "
-                              "à la <i>moyenne</i> métropolitaine de %5 habitants pour un siège."
-                              "</p>"
-                             ).arg(sansSiege)                                    // %1
+    if (sansSiege > 0) {
+        p = "<p style=\"font-size:12pt;\">"
+            "mais à ce stade %1 des %2 communes (soit %4% des communes) n'ont toujours pas de siège. "
+            "Cela tient au fait que leurs populations sont nettement inférieures "
+            "à la <i>moyenne</i> métropolitaine de %5 habitants pour un siège.</p>";
+        cursor.insertHtml(QString(p)
+                              .arg(sansSiege)                                    // %1
                               .arg(nbrCommunes)                                  // %2
                               .arg((100.0 * sansSiege) / nbrCommunes, 0, 'f', 1) // %3
                               .arg(static_cast<int>(Q)));                        // %4
-    }else{
-        cursor.insertHtml(QString("<p style=\"font-size:12pt;\">"
-                                  "et aucune commune n'est sans siège.</p>"));
+    } else {
+        p = "<p style=\"font-size:12pt;\"> et aucune commune n'est sans siège.</p>";
+        cursor.insertHtml(QString(p));
     }
     cursor.movePosition(QTextCursor::End);
     cursor.insertHtml("<br/><br/>");
