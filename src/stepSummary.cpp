@@ -36,7 +36,8 @@ void MainWindow::showSummary(QTextCursor cursor, const QList<InfoCommune*>& sort
     int line = 0;
     for( const auto *const commune : sortBy ){
         line ++;
-        setCell(table, line,  0, commune->nom);
+        QString tag = commune->k2 ? " *" : "  ";
+        setCell(table, line,  0, commune->nom + tag);
         setCell(table, line,  1, commune->population);
         setCell(table, line,  2, commune->rp);
         setCell(table, line,  3, commune->sieges1);

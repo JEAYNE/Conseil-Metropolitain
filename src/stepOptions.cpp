@@ -100,13 +100,14 @@ void MainWindow::step_Options(){
     ).arg(siegesMetropole).arg(siegesOptionnels));
 
     //---- recherche des exceptions possibles
-    QList<InfoCommune*> liste;
+    int cntK2 = 0;
     for( auto * const commune : std::as_const(parPopulation) ){
         if( (commune->totalSieges()==1) && (commune->sieges1 + commune->sieges2)==1 ){
-            liste.push_back(commune);
+            commune->k2 = true;
+            cntK2 ++;
         }
     }
-    if( liste.count()==0 ){
+    if( cntK2==0 ){
         cursor.insertHtml(
             "<h3>Aucune commune ne peut bénificier d'un second siège au titre "
             "de la dérogation N°2</h3><br/>"
@@ -120,21 +121,21 @@ void MainWindow::step_Options(){
             "2015-711 DC</a> du 5 mars 2015, attribuer un siège à une commune de cette liste "
             "oblige à en faire de même pour toutes les autres communes classées avant elle dans "
             "cette liste.<br/></p>"
-        ).arg(liste.count()));
+        ).arg(cntK2));
 
-        QTextTable *table = cursor.insertTable(liste.count()+1, 3);
+        QTextTable *table = cursor.insertTable(cntK2+1, 3);
         table->setFormat(tblFormat);
 
         setCell(table, 0, 0, "Communes",        boldCharFormat);
         setCell(table, 0, 1, "    Populations", boldCharFormat);
-        setCell(table, 0, 2, "    Sièges",      boldCharFormat);
 
         int line = 0;
-        for( const auto * const commune : liste ){
-            line++;
-            setCell(table, line, 0, commune->nom);
-            setCell(table, line, 1, commune->population);
-            setCell(table, line, 2, commune->totalSieges());
+        for( auto * const commune : std::as_const(parPopulation) ){
+            if( commune->k2){
+                line++;
+                setCell(table, line, 0, commune->nom + "  *");
+                setCell(table, line, 1, commune->population);
+            }
         }
 
         cursor.movePosition(QTextCursor::End);
@@ -210,7 +211,8 @@ void MainWindow::step_Options(){
         int line = 0;
         for( const auto * const commune : std::as_const(parEcart) ){
             line++;
-            setCell(table, line, 0, commune->nom);
+            QString tag = commune->k2 ? " *" : "  ";
+            setCell(table, line, 0, commune->nom + tag);
             setCell(table, line, 1, commune->population);
             setCell(table, line, 2, commune->rp);
             setCell(table, line, 3, commune->totalSieges());
@@ -268,7 +270,8 @@ void MainWindow::step_Options(){
     int line = 0;
     for( const auto * const commune : std::as_const(parEcart) ){
         line++;
-        setCell(table, line, 0, commune->nom);
+        QString tag = commune->k2 ? " *" : "  ";
+        setCell(table, line, 0, commune->nom + tag);
         setCell(table, line, 1, commune->population);
         setCell(table, line, 2, commune->rp);
         setCell(table, line, 3, commune->totalSieges());
@@ -282,27 +285,28 @@ void MainWindow::step_Options(){
     //---- vérifier si la recommandation du Conseil Constitutionnel est respectée.
     // Dans la liste des communes bénéficiaires de l'exception N°2 on ne doit pas trouver de
     // commune n'ayant pas bénéficiées d'un second sièges suivie d'une commune en ayant bénéficié.
-    int i = 0, iRef=0, cnt = 0;
-    while( (i < liste.count()) && (liste.at(i)->sieges5 > 0) ){
-        i++;
-    }
-    if( i < liste.count() ){
-        iRef = i;  // iRef est la plus grosse commune à ne pas avoir recu de siege5
-        // A partir de là on ne doit pas trouver de commune ayant recu un siege5
-        while( i < liste.count() ){
-            if( liste.at(i)->sieges5 > 0){
-                // i est une commune ayant un siege5 a tord !
-                cnt ++;
-                cursor.insertHtml( QString(
-                    "<p style=\"font-size:12pt;\">"
-                    "ATTENTION! %1 (population %2) vient de recevoir un second siège "
-                    "alors que %3 (population %4) n'en a pas reçu bien que plus peuplée."
-                ).arg(liste.at(i)->nom)
-                 .arg(liste.at(i)->population)
-                 .arg(liste.at(iRef)->nom)
-                 .arg(liste.at(iRef)->population));
-            }
-            i++;
+    int cnt = 0;
+    const InfoCommune * communeRef = nullptr;
+    for( auto * const commune : std::as_const(parPopulation) ){
+        if( ! commune->k2 )
+            continue;
+        if( (communeRef==nullptr) && (commune->sieges5==0) ){
+            // Premiere commune (donc la plus grosse) du groupe K2 SANS sieges5
+            // a partir de là on ne doit pas trouver de commune du groupe K2 AVEC sieges5
+            communeRef = commune;
+        }
+        if( (communeRef!=nullptr) && (commune->sieges5>0) ){
+            // Commune du groupe K2 AVEC sieges5 a tord car
+            // elle apparait après (donc plus petite) que communeRef qui elle est SANS sieges5
+            cnt ++;
+            cursor.insertHtml( QString(
+                "<p style=\"font-size:12pt;\">"
+                "ATTENTION! %1 (population %2) vient de recevoir un second siège "
+                "alors que %3 (population %4) n'en a pas reçu, bien que plus peuplée."
+                ).arg(commune->nom)
+                 .arg(commune->population)
+                 .arg(communeRef->nom)
+                 .arg(communeRef->population));
         }
     }
     if( cnt == 0 ){
@@ -334,14 +338,15 @@ void MainWindow::step_Options(){
     for( const auto * const commune : std::as_const(attributions) ){
         line++;
         const char* status = nullptr;
-        if( commune->ecart_av<=20.0){
+        if( commune->ecart_av<=20.0 ){
             status = "OUI";
         }else if( (commune->sieges1 + commune->sieges2)==1 ){
             status = "oui";
         }else{
             status = "NON !";
         }
-        setCell(table, line, 0, commune->nom);
+        QString tag = commune->k2 ? " *" : "  ";
+        setCell(table, line, 0, commune->nom + tag);
         setCell(table, line, 1, commune->population);
         setCell(table, line, 2, commune->sieges5);
         setCell(table, line, 3, commune->totalSieges());

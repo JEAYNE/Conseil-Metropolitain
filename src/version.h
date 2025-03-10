@@ -17,7 +17,7 @@
 #define APP_NAME            PROJECT_NAME
 
 #define APP_VERSION_MAJOR   2
-#define APP_VERSION_MINOR   0
+#define APP_VERSION_MINOR   1
 
 #define APP_REVISION_MAJOR  COMPILE_YY                             //  YY [22,23,24 ...]
 #define APP_REVISION_MINOR  CAT_MACRO(COMPILE_MONTH,COMPILE_DAY2)  // MDD [101,102..  1231]
