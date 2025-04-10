@@ -23,6 +23,8 @@ certifiés pour les élections municipales de 2020 (données 2019) et de 2026
 (données 2025). Mais des fichiers csv peuvent être chargés pour faire des
 simulations/projections.
 
+:arrow_right: La version pour **Windows** est téléchargeable **[ici](https://github.com/JEAYNE/Conseil-Metropolitain/releases/latest)**
+
 # LIMITATIONS
 Il y a actuellement [22 métropoles](https://fr.wikipedia.org/wiki/M%C3%A9tropole_(intercommunalit%C3%A9_fran%C3%A7aise))
 en France : ~~Aix-Marseille~~, Bordeaux, Brest, Clermont-Ferrand, Dijon, Grenoble, Lille, ~~Lyon~~,
