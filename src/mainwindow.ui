@@ -992,8 +992,23 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </item>
              <item row="2" column="1">
               <widget class="QLabel" name="label_git">
+               <property name="toolTip">
+                <string notr="true"/>
+               </property>
+               <property name="statusTip">
+                <string notr="true"/>
+               </property>
+               <property name="whatsThis">
+                <string notr="true"/>
+               </property>
                <property name="text">
                 <string>TextLabel</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
                </property>
               </widget>
              </item>
@@ -1436,7 +1451,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Format du fichier :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Les lignes vides et les lignes commençant par # sont ignorées. &lt;br/&gt;- Les autres lignes doivent être constituées de deux champs séparés par un &lt;span style=&quot; font-weight:700;&quot;&gt;point-virgule&lt;/span&gt; : &lt;br/&gt;&amp;gt; premier champ: Le nom de la commune (encodé en &lt;span style=&quot; font-weight:700;&quot;&gt;UTF-8&lt;/span&gt; pour préservé les accents)&lt;br/&gt;&amp;gt; second champ: La population municipale de cette commune &lt;/p&gt;&lt;p&gt;Pour plus de détails voir la page &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/wiki/Fichiers-csv&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;fichier csv&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-weight:700;&quot;/&gt;de l'aide en ligne.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Exemple de contenu d'un fichier : &lt;/span&gt;&lt;/p&gt;&lt;p&gt;# Liste des communes de Toulouse Métrople et de leurs populations municipales au 1/janv/2025 &lt;/p&gt;&lt;p&gt;Aigrefeuille ; 1326 &lt;br/&gt;Gagnac-sur-Garonne ; 3223 &lt;br/&gt;Toulouse ; 511684 &lt;br/&gt;Colomiers ; 40916 &lt;br/&gt;L'Union ; 12410&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Format du fichier :&lt;/span&gt;&lt;/p&gt;&lt;p&gt;- Les lignes vides et les lignes commençant par # sont ignorées. &lt;br/&gt;- Les autres lignes doivent être constituées de deux champs séparés par un &lt;span style=&quot; font-weight:700;&quot;&gt;point-virgule&lt;/span&gt; : &lt;br/&gt;&amp;gt; premier champ: Le nom de la commune (encodé en &lt;span style=&quot; font-weight:700;&quot;&gt;UTF-8&lt;/span&gt; pour préservé les accents)&lt;br/&gt;&amp;gt; second champ: La population municipale de cette commune &lt;/p&gt;&lt;p&gt;Pour plus de détails voir la page &lt;a href=&quot;https://github.com/JEAYNE/Conseil-Metropolitain/wiki/Fichiers-csv&quot;&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline; color:#007af4;&quot;&gt;fichier csv&lt;/span&gt;&lt;/a&gt; de l'aide en ligne.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Exemple de contenu d'un fichier : &lt;/span&gt;&lt;/p&gt;&lt;p&gt;# Liste des communes de Toulouse Métrople et de leurs populations municipales au 1/janv/2025 &lt;/p&gt;&lt;p&gt;Aigrefeuille ; 1326 &lt;br/&gt;Gagnac-sur-Garonne ; 3223 &lt;br/&gt;Toulouse ; 511684 &lt;br/&gt;Colomiers ; 40916 &lt;br/&gt;L'Union ; 12410&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -1461,7 +1476,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Impression directe: &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;A cause de la largeur de certains tableaux il est conseillé d'imprimer en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; paysage. Il est possible de n'imprimer que le texte selectionné.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;PDF&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;: Pour une meilleure lisibilité à l'écran les fichiers PDF sont générés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; portrait, mais peuvent être ensuite imprimés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; ou &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Impression directe: &lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;A cause de la largeur de certains tableaux il est conseillé d'imprimer en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4 paysage&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;. Il est possible de n'imprimer que le texte selectionné.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;PDF&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;: Pour une meilleure lisibilité à l'écran les fichiers PDF sont générés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; portrait, mais peuvent être ensuite imprimés en &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A4&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; ou &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;A3.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -1493,17 +1508,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1023</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
